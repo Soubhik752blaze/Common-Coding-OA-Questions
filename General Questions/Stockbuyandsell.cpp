@@ -22,4 +22,5 @@ int main()
 	cout << maxProfit(prices, N) << endl;
 	return 0;
 }
-// This code is contributed by Kingshuk Deb
+
+//@Soubhik_Ghosh
