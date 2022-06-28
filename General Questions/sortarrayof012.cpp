@@ -1,5 +1,7 @@
 /*Question:- Sort an array of 0s, 1s and 2s.*/
 
+
+//USING DUTCH NATIONAL FLAG ALGORITHM
 #include <bits/stdc++.h>
 using namespace std;
 
