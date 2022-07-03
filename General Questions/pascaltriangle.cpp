@@ -21,12 +21,12 @@ vector<vector<int>> pascal1(int row)
     return r;
 }
 
-int pascal2(int r,int c)
+int pascal2(int row,int col)
 {
     int res=1;
-    for(int i=0;i<c;i++)
+    for(int i=0;i<col;i++)
     {
-        res *= r-i;
+        res *= row-i;
         res /= i+1;
     }
     return res;
