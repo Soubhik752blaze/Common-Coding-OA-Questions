@@ -39,3 +39,5 @@ int main()
 }
 
 //@Soubhik_Ghosh
+//TC -> o(n)
+//SC -> o(1)
