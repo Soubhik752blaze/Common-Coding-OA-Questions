@@ -11,32 +11,41 @@ using namespace std;
 int maxProfit(vector<int>& prices,int k)
 {
 	    int n=prices.size();
-        if(n==0|| k==0)
+        if(n<=1|| k<=0)
             return 0;
-        int ans=0;
-        vector<vector<int>>dp(k+1,vector<int>(n,0));
-        
-        for(int i=1;i<=k;i++)
+        int profit=0;
+        if(k>=n/2)
         {
-            int mx_diff=-prices[0];
-            for(int j=1;j<n;j++)
-            {
-                dp[i][j]=max(dp[i][j-1],mx_diff+prices[j]);
-                mx_diff=max(mx_diff, dp[i-1][j]-prices[j]);
-                
-            }
+            for(int i=1;i<n;i++)
+                if(prices[i]>prices[i-1])
+                    {
+                        profit += prices[i]-prices[i-1];
+                    }
+            return profit;        
         }
-        return dp[k][n-1];   
+        int buy[k]={INT_MIN};
+        int sell[k]={0};
+        int nextbuy;
+        for(int i=0;i<n;i++)
+            for(int j=0;j<k;j++) 
+            {
+                nextbuy = (j==0?0-prices[i]:sell[j-1]-prices[i]);
+                buy[j]=max(buy[j],nextbuy);
+                sell[j]=max(sell[j],buy[j]+prices[i]);
+            }
+                
+        return sell[k-1];
+        
 }
 
 // Driver Function
 int main()
 {
-	vector<int> prices = { 3,2,6,5,0,3};
-	cout << maxProfit(prices,3) << endl;
+	vector<int> prices = {2,4,5,4,3,1,6};
+	cout << maxProfit(prices,2) << endl;
 	return 0;
 }
 
 //@Soubhik_Ghosh
 //TC = O(N*K)
-//SC = O(n*k)
+//SC = O(k)
