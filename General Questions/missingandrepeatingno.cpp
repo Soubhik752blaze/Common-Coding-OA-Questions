@@ -4,7 +4,7 @@ using namespace std;
 
 void findmissingrepeatingno(int arr[], int n)
 {
-    int x,y;                        // x is missing, y is repeating
+    //x missing, y repeating
     int s1=0,reals1=0,s2=0,reals2=0;
 
     for(int i=0;i<n;i++)
