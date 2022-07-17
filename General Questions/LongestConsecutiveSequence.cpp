@@ -29,7 +29,7 @@ int main()
 
 
 //@Soubhik_Ghosh
-//TC -> o(NlogN)
+//TC -> o(N)
 //SC -> o(N)
 
 //BF -> o(N^2)
