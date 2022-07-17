@@ -1,4 +1,4 @@
-/*Questions :- Write a efficient program to find the sum of the contiguous subarray within a one-dimensional array of numbers that has the largest sum.*/
+/*Questions :- Write a efficient program to find the max sum of a contiguous subarray within a one-dimensional array of numbers that has the largest sum.*/
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +8,7 @@ int maxSubArraySum(int a[],int n)
     for(int i=0;i<n;i++)
         {
             max_ends = max_ends + a[i];
-            if(max_ends> max_sum)
+            if(max_ends> max_sum)                               //kadane algo
                 max_sum = max_ends;
             if(max_ends<0)
                 max_ends=0;
