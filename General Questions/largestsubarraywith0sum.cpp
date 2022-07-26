@@ -11,7 +11,7 @@ int maxSubArraySum(int arr[],int n)
     {
         sum+=arr[i];
         if(sum==0)
-            maxi = i+1;
+            maxi = i+1;                 //means from starting upto i thats the longest subarray with sum 0
         if(mp.find(sum)!=mp.end())
             maxi=max(maxi,i-mp[sum]);
         else
@@ -33,7 +33,7 @@ int main()
 
 
 //@Soubhik_Ghosh
-//TC -> o(NlogN)
+//TC -> o(N)
 //SC -> o(N)
 
 //BF -> o(N^2)
