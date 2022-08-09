@@ -2,7 +2,6 @@
 
 You must implement an algorithm that runs in O(n) time and uses constant extra space.*/
 
-
 #include<bits/stdc++.h>
 using namespace std;
 
