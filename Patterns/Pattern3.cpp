@@ -5,7 +5,7 @@
             12345
  */
 
-// No of elements in each row = "n"
+// No of rows = "n"
 // Thus, run a loop for n times(outer loop) and in each row, print the columns using a inner loop.
 // the limit for column is that no of columns to be printed per line = no of rows
 

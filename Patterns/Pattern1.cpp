@@ -5,7 +5,7 @@
  */
 
 
-// No of stars in each row = total no of rows, i.e "n"
+// No of rows = "n"
 // Thus, run a loop for n times(outer loop) and in each row, print "*" n times using a inner loop.
 #include <bits/stdc++.h> 
 using namespace std;

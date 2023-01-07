@@ -5,7 +5,7 @@
             55555
  */
 
-// No of elements in each row = "n"
+// No of rows = "n"
 // Thus, run a loop for n times(outer loop) and in each row, print the row no using a inner loop.
 // the only rule here is for each row, print the row no "i" no of times (where "i" is the row number we are currently in)
 #include <bits/stdc++.h>
