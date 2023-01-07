@@ -1,0 +1,7 @@
+For any pattern problem, always remember 4 guidelines. 
+These guidelines can be used to solve any problem :-
+
+1. For Outer loop, count the no. of rows.
+2. For Inner loop, count the no of columns and somehow relate them to no. of rows.
+3. Print "*" or whatever is to be printed, inside the inner loop.
+4. Observe Symmetry (optional -> used in only few pattern problems).
