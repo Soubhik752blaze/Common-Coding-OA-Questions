@@ -23,17 +23,21 @@ int subarraysDivByK(int k, vector<int> nums)
     vector<int> mod(k, 0);
     int cnt = 0;
     int sum = 0;
+
+    // Traverse original array and compute cumulative sum 
+    // then take remainder of this current cumulative sum and increase count by 1 for this remainder in mod[] array
     for (int i = 0; i < nums.size(); i++)
     {
         sum += nums[i];
+        // as the sum can be negative, taking modulo twice
         int rem = ((sum % k) + k) % k;
         mod[rem]++;
     }
 
     for (int i = 0; i < k; i++)
     {
-        // Now traverse Mod[] array & for any Mod[i] > 1 we can choose any two pair of indices for sub-array by (Mod[i]*(Mod[i] – 1))/2 number of ways . 
-        // add the no of pairs to total no of subarrays with sum divisible by k
+        // Now traverse Mod[] array & for any Mod[i] > 1, we can choose any two pair of indices for sub-array by (Mod[i]*(Mod[i] – 1))/2 number of ways . 
+        // add the no of pairs (equal to no of valid subsets) to total no of subarrays with sum divisible by k
         if (mod[i] > 1)
             cnt += (mod[i] * (mod[i] - 1)) / 2;
     }
@@ -45,7 +49,7 @@ int subarraysDivByK(int k, vector<int> nums)
 }
 int main()
 {
-    vector<int> nums = {4, 5, 0, -2, -3, 1};
+    vector<int> nums = {3, -6, 0, -2, -3, 1};
     int k = 5;
     int ans = subarraysDivByK(k, nums);
     cout << "No of subarrays with sum divisible by k = " << ans;
