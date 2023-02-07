@@ -45,3 +45,6 @@ int main()
     int ans = minimizeXor(a, b);
     cout << ans;
 }
+
+// TC -> O(N)
+// SC -> O(1)
