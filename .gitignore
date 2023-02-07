@@ -3,3 +3,4 @@ MATRIX/.vscode/settings.json
 Patterns/.vscode/c_cpp_properties.json
 Patterns/.vscode/settings.json
 *.exe
+.vscode/settings.json
