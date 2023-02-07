@@ -4,9 +4,12 @@ using namespace std;
 
 /*logic :- 1. Update max_sum only when we achieve a greater value of max_ends
            2. Unless until max_ends < 0, keep adding the array elements until the end of array.
-           3. If at any point, it < 0 then make max_sum = 0 and repeat
-           */
+           3. If at any point, it < 0 then make max_ends = 0 and repeat
 
+Common FAQ :- Why dont we set max_ends = 0 as it starts decreasing(i.e we encounter negative numbers) ?
+       Ans :- Until it becomes < 0, we dont set it to 0, because we might find potential numbers in the future
+              which will increase the overall sum of the subarray.
+*/
 
 int maxSubArraySum(int a[], int n)
 {
