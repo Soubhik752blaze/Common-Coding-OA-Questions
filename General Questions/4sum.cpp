@@ -16,9 +16,11 @@ vector<vector<int>> foursum(vector<int> &nums, int k)
     int n = nums.size();
     sort(nums.begin(), nums.end());
 
-    for (int i = 0; i < n - 3; i++)
+    //3 pointer technique
+    //fix 2 pointers and then use 2 remaining pointers for 2 pointer approach for a given sum
+    for (int i = 0; i < n; i++)
     {
-        for (int j = i + 1; j < n - 2; j++)
+        for (int j = i + 1; j < n; j++)
         {
             int target = k - nums[i] - nums[j];
             int left = j + 1;
@@ -26,10 +28,11 @@ vector<vector<int>> foursum(vector<int> &nums, int k)
             while (left < right)
             {
                 int two_sum = nums[left] + nums[right];
-                if (two_sum > target)
+
+                if (two_sum < target)
+                    left++;
+                else if (two_sum > target)
                     right--;
-                else if (two_sum < target)
-                    left--;
                 else
                 {
                     vector<int> ans(4, 0);
@@ -44,15 +47,15 @@ vector<vector<int>> foursum(vector<int> &nums, int k)
                         left++;
                     // Avoiding duplicates for 4th number
                     while (left < right && nums[right] == ans[3])
-                        right--; 
+                        right--;
                 }
             }
             // Avoiding duplicates for 2nd number
             while (j + 1 < n && nums[j] == nums[j + 1])
-                j++; 
+                j++;
         }
         // Avoiding duplicates for 1st number
-        while (i < n - 1 and nums[i] == nums[i + 1]) 
+        while (i + 1 < n && nums[i] == nums[i + 1])
             i++;
     }
     return res;
@@ -60,9 +63,10 @@ vector<vector<int>> foursum(vector<int> &nums, int k)
 
 int main()
 {
-    vector<int> num = {1, 0, -1, 0, -2, 2};
-    int k = 0;
+    vector<int> num = {1, 1, 2, 2, 2, 3, 3, 4, 4, 4};
+    int k = 9;
     vector<vector<int>> ans = foursum(num, k);
+    cout << "The unique Quadruplets are :- " << endl;
     for (int i = 0; i < ans.size(); i++)
     {
         for (auto it : ans[i])
@@ -73,5 +77,5 @@ int main()
     return 0;
 }
 
-// TC -> O(N^3)
+// TC -> O(N^3) + O(NlogN) == O(N^3)
 // SC -> O(1) Except for the result container vector<vector<int>> used for returning the answer

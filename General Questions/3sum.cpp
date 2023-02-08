@@ -34,14 +34,12 @@ vector<vector<int>> threesum(vector<int> nums)
                     res.push_back(ans);
 
                     // Avoiding duplicates for 2nd number
-                    while (l < r && nums[l] == nums[l + 1])
+                    while (l < r && nums[l] == ans[1])
                         l++;
-                    l++;
 
                     // Avoiding duplicates for 3rd number
-                    while (l < r && nums[r] == nums[r - 1])
+                    while (l < r && nums[r] == ans[2])
                         r--;
-                    r--; 
                 }
                 
                 else if (lrsum < sum)
