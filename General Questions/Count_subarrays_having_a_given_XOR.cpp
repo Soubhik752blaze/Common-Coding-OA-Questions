@@ -15,6 +15,12 @@ using namespace std;
 /*Brute Force:- Find all Subarrays and find their Xor, if any subarray xor equals k, increase the count of such subarrays
 Complexity of this solution = TC -> O(N*N), SC -> O(1)
 */
+
+// Optimal Logic :- Let for a subarray "s" (having total XOR "xorr") there are two parts "a" and "b" whose total XOR are "P" and "K" respectively 
+// So we can write ---> P ^ K = xorr i.e P = xorr ^ K
+// Now, if we have value of both xorr and K, we can find P
+// Also, if we know no of such subarrays whose total XOR is P, we have the total number of subarrays whose XOR is "K" as well
+// We implement this logic in our code
 int countsubarrays(vector<int> nums, int k)
 {
     int n = nums.size();
@@ -24,12 +30,18 @@ int countsubarrays(vector<int> nums, int k)
     for (int i = 0; i < n; i++)
     {
         xorr = xorr ^ nums[i];
+        // found a subarray with total_xorr = k, hence increase count
         if (xorr == k)
             count++;
+
+        // if we get a subarray with xorr != k, look into map if any subarrays are encountered before with xorr "xorr ^ k"
+        // if yes, then add the total no of such subarrays to count.
         if (mp.find(xorr ^ k) != mp.end())
         {
             count += mp[xorr ^ k];
         }
+
+        //increase the no of subarrays count with total_xor value as xorr
         mp[xorr] += 1;
         
     }
